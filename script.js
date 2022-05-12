@@ -16,44 +16,61 @@
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var passwordCriteria = {
-  passwordLength: length,
-  passwordUpper: upper,
-  passwordSChar: char,
-}
-
-
+var upper = true;
+var lower = true;
+var char = true;
+var length = 10;
+var nums = true;
 // Add event listener to generate button
 
 generateBtn.addEventListener("click", writePassword);
-  writePassword();
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
 
 
 // Write password to the #password input
-function writePassword() {
-  // var password = generatePassword();
-  var password = "lemon";
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
-};
+function generatePassword(){
+  getUserInput();
+  return 7;
+}
 
+function getUserInput(){
+  getLength();
+  getUpper();
+  getLower();
+  getChar();
+  getNums();
+  return length,upper,lower,char,nums;
+}
 
-
-
-// THEN I choose a length of at least 8 characters and no more than 128 characters
+// GET LENGTH FROM USER----------------------------
 function getLength(){
-  length = window.prompt("Choose a password length between 8 and 128 characters");
-  if (128 < length || length < 8) {
-    getLength()
-  } 
-};
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
+  length = window.prompt("Choose a password length between 8 and 128")
+  if (length > 128 || length < 8) {
+    getLength();
+  } else {
+    return length; 
+} }
+// GET UPPERCASE FROM USER----------------------------
 function getUpper(){
-  upper = window.confirm("Do you want to include UPPERCASE characters?");
-  return upper;
-};
-
+  upper = window.confirm("Do you want to include upper case characters?")
+    return upper;
+} 
+// GET LOWERCASE FROM USER----------------------------
+function getLower(){
+  lower = window.confirm("Do you want to include lower case characters?")
+    return upper;
+} 
+// GET SPECIAL CHARACTER FROM USER----------------------------
 function getChar(){
-  char = window.confirm("Do you want to include special characters?");
-  return char;
-};
+  char = window.confirm("Do you want to include special characters?")
+    return char;
+} 
+// GET NUMERIC FROM USER----------------------------
+function getNums(){
+  nums = window.confirm("Do you want to include numbers")
+    return nums;
+}
