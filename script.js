@@ -19,7 +19,7 @@ var generateBtn = document.querySelector("#generate");
 var upper = true;
 var lower = true;
 var char = true;
-var length = 10;
+var length = 0;
 var nums = true;
 // Add event listener to generate button
 
@@ -45,6 +45,23 @@ function getUserInput(){
   getNums();
   return length,upper,lower,char,nums;
 }
+
+function makeid(length) {
+  getUserInput
+  var result           = '';
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+  var caps             = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var lows             = 'abcdefghijklmnopqrstuvwxyz'
+  var numbys           = '0123456789'
+  var scharacters      = '!@#$%^&*()'
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+ }
+ return result;
+}
+
+console.log(makeid(5));
 
 // GET LENGTH FROM USER----------------------------
 function getLength(){
