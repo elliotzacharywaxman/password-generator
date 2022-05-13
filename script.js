@@ -1,7 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
 // Add event listener to generate button
 
 generateBtn.addEventListener("click", writePassword);
@@ -14,19 +13,14 @@ function writePassword() {
 
 
 function generatePassword() {
-  var upper = true;
-  var lower = true;
-  var char = true;
-  var length = 0;
-  var nums = true;
   var result           = '';
   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
   var caps             = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  var lows             = 'abcdefghijklmnopqrstuvwxyz'
-  var scharacters      = '!@#$%^&*()'
-  var numbys           = '0123456789'
+  var lows             = 'abcdefghijklmnopqrstuvwxyz';
+  var scharacters      = '!@#$%^&*()';
+  var numbys           = '0123456789';
   var charactersLength = characters.length;
-  var wildString =" "
+  var wildString       = '';
   getLength();
   getUpper();
   getLower();
@@ -45,10 +39,13 @@ function generatePassword() {
     wildString = (wildString+numbys)
   }
   for ( var i = 0; i < length; i++ ) {
+    var wildStringLength = wildString.length
     result += wildString.charAt(Math.floor(Math.random() * charactersLength));
+    console.log("this is the wildstring",wildString)
     console.log("This is the result",result)
-      return result; 
+    console.log("This is the wildstringlength",wildStringLength)
   }
+  return result; 
 }
 
 // GET LENGTH FROM USER----------------------------
@@ -81,7 +78,6 @@ function getChar(){
   console.log("This is the char",char);
     return char;
 } 
-
 
 // GET NUMERIC FROM USER----------------------------
 function getNums(){
